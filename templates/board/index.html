@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>pybo 게시판</title>
+</head>
+<body>
+    {% if questions %} <!--값이있으면 True인거 알지?-->
+        <ul>
+        {% for question in questions %}
+            <!--제목클릭하면 상세페이지로 넘어가야지-->
+            <li><a href="{% url 'board:question_detail' question.id %}">{{ question.subject }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>질문이 없습니다.</p>
+    {% endif %}
+</body>
+</html>
